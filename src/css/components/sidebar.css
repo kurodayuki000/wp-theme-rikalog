@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+@layer components {
+  .site-sidebar {
+    @apply w-[300px] shrink-0;
+  }
+
+  .sidebar-widget {
+    @apply bg-surface rounded-[14px] p-6 mb-6 border border-border-light shadow-sm;
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+  }
+
+  .sidebar-widget:hover {
+    @apply shadow-md;
+  }
+
+  .sidebar-widget-title {
+    @apply text-[0.95rem] font-semibold mb-4 pb-3 border-b-0 relative;
+  }
+
+  .sidebar-widget-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-10 h-[3px] rounded-sm;
+    background: var(--gradient-primary);
+  }
+
+  /* Sidebar Select Boxes */
+  .sidebar-select-wrap {
+    @apply relative;
+  }
+
+  .sidebar-select-wrap::after {
+    content: '';
+    @apply absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--color-text-muted);
+  }
+
+  .sidebar-select {
+    @apply w-full py-[11px] pl-4 pr-10 border border-input-border rounded-[10px] bg-input-bg text-text text-[0.9rem] font-sans cursor-pointer outline-none appearance-none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .sidebar-select:hover {
+    @apply border-primary;
+  }
+
+  .sidebar-select:focus {
+    @apply border-primary;
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  /* Popular Posts Widget */
+  .popular-posts-list li {
+    @apply border-b border-border-light;
+  }
+
+  .popular-posts-list li:last-child {
+    @apply border-b-0;
+  }
+
+  .popular-post-link {
+    @apply flex gap-3.5 py-3 text-inherit;
+    transition: transform 0.25s ease;
+  }
+
+  .popular-post-link:hover {
+    @apply text-inherit;
+    transform: translateX(4px);
+  }
+
+  .popular-posts-list li:first-child .popular-post-link {
+    @apply pt-0;
+  }
+
+  .popular-post-thumbnail {
+    @apply w-[72px] h-[72px] rounded-[10px] overflow-hidden shrink-0;
+    background: var(--gradient-hero);
+  }
+
+  .popular-post-thumbnail img {
+    @apply w-full h-full object-cover;
+    transition: transform 0.4s ease;
+  }
+
+  .popular-posts-list li:hover .popular-post-thumbnail img {
+    transform: scale(1.08);
+  }
+
+  .popular-post-info {
+    @apply flex-1 min-w-0;
+  }
+
+  .popular-post-title {
+    @apply text-[0.88rem] font-medium leading-[1.45] line-clamp-2;
+  }
+
+  .popular-post-link:hover .popular-post-title {
+    @apply text-primary;
+  }
+
+  .popular-post-views {
+    @apply text-[0.75rem] text-text-muted mt-1;
+  }
+}

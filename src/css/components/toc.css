@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Table of Contents (TOC)
+   ========================================================================== */
+
+@layer components {
+  .toc-container {
+    @apply bg-surface border border-border rounded-[14px] mb-9 overflow-hidden shadow-sm;
+  }
+
+  .toc-header {
+    @apply flex items-center justify-between py-4 px-[22px] cursor-pointer border-none w-full text-text text-[0.95rem] font-semibold font-sans;
+    background: var(--gradient-hero);
+    transition: background 0.25s ease;
+  }
+
+  .toc-header:hover {
+    filter: brightness(0.97);
+  }
+
+  .toc-toggle-icon {
+    @apply text-[0.8rem];
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .toc-container.collapsed .toc-toggle-icon {
+    transform: rotate(-90deg);
+  }
+
+  .toc-body {
+    @apply py-4 px-[22px] max-h-[500px] overflow-y-auto;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .toc-container.collapsed .toc-body {
+    @apply max-h-0 overflow-hidden;
+    padding: 0 22px;
+  }
+
+  .toc-list {
+    @apply list-none;
+  }
+
+  .toc-list li {
+    @apply mb-0.5;
+  }
+
+  .toc-list a {
+    @apply block py-[7px] px-3.5 text-text-secondary text-[0.88rem] border-l-2 border-transparent rounded-r-[6px];
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .toc-list a:hover,
+  .toc-list a.active {
+    @apply text-primary border-l-primary bg-primary-light;
+  }
+
+  .toc-list .toc-h3 {
+    @apply pl-[30px] text-[0.84rem];
+  }
+
+  /* Mobile TOC */
+  .toc-mobile-btn {
+    @apply hidden fixed bottom-7 right-7 w-14 h-14 rounded-2xl text-white border-none cursor-pointer z-[999] items-center justify-center text-[1.2rem];
+    background: var(--gradient-primary);
+    box-shadow: 0 4px 20px rgba(212, 160, 160, 0.35);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease;
+  }
+
+  .toc-mobile-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 160, 160, 0.45);
+  }
+
+  .toc-mobile-overlay {
+    @apply hidden fixed inset-0 z-[1100] items-end justify-center;
+    background: var(--color-overlay);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .toc-mobile-overlay.active {
+    @apply flex;
+  }
+
+  .toc-mobile-content {
+    @apply bg-surface w-full max-h-[70vh] rounded-t-[20px] p-7 overflow-y-auto;
+    animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .toc-mobile-close {
+    @apply flex items-center justify-between mb-5 text-base font-semibold text-text border-none bg-transparent w-full cursor-pointer p-0;
+  }
+
+  @media (max-width: 768px) {
+    .toc-container {
+      @apply hidden;
+    }
+
+    .toc-mobile-btn {
+      @apply flex;
+    }
+  }
+}

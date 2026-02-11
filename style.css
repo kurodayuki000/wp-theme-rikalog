@@ -1,0 +1,19 @@
+/*
+Theme Name: RikaLog
+Theme URI:
+Author: りか
+Author URI:
+Description: 55歳コールセンター勤務りかさんの個人ブログテーマ
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rikalog
+Tags: blog, one-column, two-columns, custom-menu, featured-images, translation-ready
+
+This file is required by WordPress for theme identification.
+Actual styles are built from src/css/ and output to dist/theme.css.
+Run `npm run build` to generate the production CSS.
+*/

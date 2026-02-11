@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Forms (Search, Contact, CF7)
+   ========================================================================== */
+
+@layer components {
+  /* Search Widget */
+  .search-form {
+    @apply flex rounded-[10px] overflow-hidden border border-input-border;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .search-form:focus-within {
+    @apply border-primary;
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  .search-form label {
+    @apply flex-1 flex m-0;
+  }
+
+  .search-form .search-field {
+    @apply flex-1 w-full py-[11px] px-4 border-none bg-input-bg text-text text-[0.9rem] font-sans outline-none min-w-0;
+  }
+
+  .search-form .search-submit {
+    @apply py-[11px] px-[18px] text-white border-none cursor-pointer text-[0.9rem] font-sans font-semibold whitespace-nowrap shrink-0;
+    background: var(--gradient-primary);
+    transition: opacity 0.25s ease;
+  }
+
+  .search-form .search-submit:hover {
+    @apply opacity-90;
+  }
+
+  .search-field--empty {
+    animation: shake 0.4s ease;
+  }
+
+  /* Contact Form (self-contained) */
+  .contact-form {
+    @apply bg-surface rounded-[18px] p-10 border border-border-light shadow-sm;
+  }
+
+  .form-group {
+    @apply mb-[22px];
+  }
+
+  .form-group label {
+    @apply block text-[0.9rem] font-semibold mb-2 text-text;
+  }
+
+  .form-group label .required {
+    @apply text-primary ml-1;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    @apply w-full py-[13px] px-[18px] border border-input-border rounded-[10px] bg-input-bg text-text text-[0.95rem] font-sans outline-none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    @apply border-primary;
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  .form-group textarea {
+    @apply min-h-[160px] resize-y;
+  }
+
+  .contact-submit {
+    @apply w-full py-[15px] text-white border-none rounded-xl text-base font-semibold cursor-pointer font-sans relative overflow-hidden;
+    background: var(--gradient-primary);
+    transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease;
+  }
+
+  .contact-submit:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(212, 160, 160, 0.3);
+  }
+
+  .contact-submit:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .contact-form {
+      @apply p-7;
+    }
+  }
+}

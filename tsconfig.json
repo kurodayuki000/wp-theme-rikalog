@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "jsxFactory": "wp.element.createElement",
+    "jsxFragmentFactory": "wp.element.Fragment",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@modules/*": ["src/ts/modules/*"],
+      "@blocks/*": ["src/ts/blocks/*"]
+    }
+  },
+  "include": ["src/ts/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

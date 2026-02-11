@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* ==========================================================================
+   Base: CSS Custom Properties + Reset
+   ========================================================================== */
+
+@layer base {
+  [data-theme="light"],
+  :root {
+    --color-primary: #D4A0A0;
+    --color-primary-hover: #C48E8E;
+    --color-primary-deep: #B07878;
+    --color-primary-light: rgba(212, 160, 160, 0.13);
+    --color-accent: #A0B8D4;
+    --color-accent-light: rgba(160, 184, 212, 0.12);
+    --gradient-primary: linear-gradient(135deg, #D4A0A0 0%, #C4B0D4 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(212,160,160,0.08) 0%, rgba(196,176,212,0.08) 50%, rgba(160,184,212,0.08) 100%);
+    --gradient-card: linear-gradient(180deg, rgba(212,160,160,0.04) 0%, transparent 100%);
+    --color-bg: #FAF8F6;
+    --color-bg-white: #FFFFFF;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #FBF5F3;
+    --color-surface-elevated: #FFFFFF;
+    --color-text: #3C3C3C;
+    --color-text-secondary: #6B6B6B;
+    --color-text-muted: #999999;
+    --color-border: #EBE4E1;
+    --color-border-light: #F3EDEB;
+    --color-shadow: rgba(212, 160, 160, 0.08);
+    --color-shadow-md: rgba(212, 160, 160, 0.12);
+    --color-shadow-lg: rgba(212, 160, 160, 0.18);
+    --color-shadow-hover: rgba(212, 160, 160, 0.22);
+    --color-overlay: rgba(60, 60, 60, 0.45);
+    --color-code-bg: #F8F2F0;
+    --color-blockquote-bg: #FDF5F5;
+    --color-blockquote-border: #D4A0A0;
+    --color-tag-bg: rgba(212, 160, 160, 0.1);
+    --color-tag-text: #B07878;
+    --color-input-bg: #FFFFFF;
+    --color-input-border: #E0D8D5;
+    --header-bg: rgba(250, 248, 246, 0.82);
+    --footer-bg: #3C3C3C;
+    --footer-surface: #484848;
+    --footer-text: #E0D8D5;
+    --glow-primary: 0 0 20px rgba(212, 160, 160, 0.2);
+    --color-card-bg: var(--color-surface);
+    --color-card-border: var(--color-border-light);
+    --shadow-hover: 0 8px 30px var(--color-shadow-hover);
+  }
+
+  [data-theme="dark"] {
+    --color-primary: #D4A0A0;
+    --color-primary-hover: #E0B0B0;
+    --color-primary-deep: #E8C0C0;
+    --color-primary-light: rgba(212, 160, 160, 0.1);
+    --color-accent: #A0B8D4;
+    --color-accent-light: rgba(160, 184, 212, 0.1);
+    --gradient-primary: linear-gradient(135deg, #D4A0A0 0%, #C4B0D4 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(212,160,160,0.05) 0%, rgba(196,176,212,0.05) 50%, rgba(160,184,212,0.05) 100%);
+    --gradient-card: linear-gradient(180deg, rgba(212,160,160,0.03) 0%, transparent 100%);
+    --color-bg: #1E1E22;
+    --color-bg-white: #1E1E22;
+    --color-surface: #2A2A30;
+    --color-surface-hover: #32323A;
+    --color-surface-elevated: #34343C;
+    --color-text: #E8E2DF;
+    --color-text-secondary: #B0AAA7;
+    --color-text-muted: #807878;
+    --color-border: #3A3A42;
+    --color-border-light: #30303A;
+    --color-shadow: rgba(0, 0, 0, 0.2);
+    --color-shadow-md: rgba(0, 0, 0, 0.25);
+    --color-shadow-lg: rgba(0, 0, 0, 0.35);
+    --color-shadow-hover: rgba(0, 0, 0, 0.4);
+    --color-overlay: rgba(0, 0, 0, 0.65);
+    --color-code-bg: #2A2A30;
+    --color-blockquote-bg: rgba(212, 160, 160, 0.06);
+    --color-blockquote-border: #D4A0A0;
+    --color-tag-bg: rgba(212, 160, 160, 0.1);
+    --color-tag-text: #D4A0A0;
+    --color-input-bg: #2A2A30;
+    --color-input-border: #3E3E46;
+    --header-bg: rgba(30, 30, 34, 0.82);
+    --footer-bg: #16161A;
+    --footer-surface: #222228;
+    --footer-text: #B0AAA7;
+    --glow-primary: 0 0 20px rgba(212, 160, 160, 0.1);
+    --color-card-bg: var(--color-surface);
+    --color-card-border: var(--color-border-light);
+    --shadow-hover: 0 8px 30px var(--color-shadow-hover);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding-top: 64px;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-top: 56px;
+    }
+  }
+}
+
+/* ==========================================================================
+   Component imports
+   ========================================================================== */
+
+@import './components/animations.css';
+@import './components/header.css';
+@import './components/post-card.css';
+@import './components/post-content.css';
+@import './components/sidebar.css';
+@import './components/toc.css';
+@import './components/link-card.css';
+@import './components/front-page.css';
+@import './components/footer.css';
+@import './components/forms.css';
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@layer utilities {
+  .screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    word-wrap: normal !important;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+  }
+}
