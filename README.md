@@ -2,7 +2,7 @@
                                                                                                                                                                                
 アップロードするの                                                                                                                                                           
                                                                                                                                                                             ```
-rikalog-theme/                                                                                                                                                                 
+rikalog-theme/                                                                                                                                                              
   ├── style.css                  ← WPテーマ識別用（必須）                                                                                                                      
   ├── screenshot.png             ← テーマ画像
   ├── functions.php              ← 変更済み
@@ -58,6 +58,8 @@ rikalog-theme/
 │ js/ (旧フォルダ)   │ dist/ に置き換え済み                            │
 └────────────────────┴─────────────────────────────────────────────────┘
 ```
+
+
 手順
 
 1. ローカルで npm run build を実行
